@@ -114,7 +114,7 @@ if (!isset($_SESSION['role'])) {
             <!-- Heading -->
             <div class="sidebar-heading">Navigasi</div>
             <?php
-            if ($_SESSION['role'] != 'peminjam') {
+            if ($_SESSION['role'] == 'admin') {
             ?>
 
                 <li class="nav-item">
@@ -143,22 +143,31 @@ if (!isset($_SESSION['role'])) {
                         <i class="fas fa-fw fa-book-open"></i>
                         <span>Koleksi Buku</span></a>
                 </li> -->
+            <?php } ?>
+            <?php
+            if ($_SESSION['role'] == 'petugas') {
+            ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="?page=laporan">
+                        <i class="fas fa-fw fa-comments"></i>
+                        <span>Generate Laporan</span></a>
+                </li>
+            <?php } ?>
+
+            <?php
+            if ($_SESSION['role'] == 'admin') {
+            ?>
                 <li class="nav-item">
                     <a class="nav-link" href="?page=peminjaman">
                         <i class="fas fa-fw fa-book-open"></i>
                         <span>Peminjaman</span></a>
                 </li>
-            <?php } ?>
 
-            <li class="nav-item">
-                <a class="nav-link" href="?page=ulasan">
-                    <i class="fas fa-fw fa-comments"></i>
-                    <span>Ulasan</span></a>
-            </li>
-
-            <?php
-            if ($_SESSION['role'] != 'peminjam') {
-            ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="?page=ulasan">
+                        <i class="fas fa-fw fa-comments"></i>
+                        <span>Ulasan</span></a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="?page=laporan">
                         <i class="fas fa-fw fa-book"></i>
