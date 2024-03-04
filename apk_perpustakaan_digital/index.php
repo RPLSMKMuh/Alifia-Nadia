@@ -113,14 +113,18 @@ if (!isset($_SESSION['role'])) {
 
             <!-- Heading -->
             <div class="sidebar-heading">Navigasi</div>
-            <?php
-            if ($_SESSION['role'] == 'admin') {
-            ?>
 
+            <?php if ($_SESSION['role'] == 'admin') { ?>
+                <!-- Admin Menu -->
                 <li class="nav-item">
                     <a class="nav-link" href="?page=user">
                         <i class="fas fa-fw fa-user"></i>
                         <span>Users</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?page=buku">
+                        <i class="fas fa-fw fa-book"></i>
+                        <span>Buku</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="?page=kategori">
@@ -128,41 +132,10 @@ if (!isset($_SESSION['role'])) {
                         <span>Kategori</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?page=buku">
-                        <i class="fas fa-fw fa-book"></i>
-                        <span>Buku</span></a>
-                </li>
-            <?php } else { ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="?page=buku">
-                        <i class="fas fa-fw fa-book"></i>
-                        <span>Buku</span></a>
-                </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="?page=koleksi">
-                        <i class="fas fa-fw fa-book-open"></i>
-                        <span>Koleksi Buku</span></a>
-                </li> -->
-            <?php } ?>
-            <?php
-            if ($_SESSION['role'] == 'petugas') {
-            ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="?page=laporan">
-                        <i class="fas fa-fw fa-comments"></i>
-                        <span>Generate Laporan</span></a>
-                </li>
-            <?php } ?>
-
-            <?php
-            if ($_SESSION['role'] == 'admin') {
-            ?>
-                <li class="nav-item">
                     <a class="nav-link" href="?page=peminjaman">
                         <i class="fas fa-fw fa-book-open"></i>
                         <span>Peminjaman</span></a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="?page=ulasan">
                         <i class="fas fa-fw fa-comments"></i>
@@ -170,21 +143,53 @@ if (!isset($_SESSION['role'])) {
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="?page=laporan">
-                        <i class="fas fa-fw fa-book"></i>
+                        <i class="fas fa-fw fa-print"></i>
                         <span>Generate Laporan</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="registrasi.php">
+                    <a class="nav-link" href="?page=registrasi">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                        <span>Registrasi</span></a>
+                </li>
+
+            <?php } elseif ($_SESSION['role'] == 'petugas') { ?>
+                <!-- Petugas Menu -->
+                <li class="nav-item">
+                    <a class="nav-link" href="?page=buku">
+                        <i class="fas fa-fw fa-book"></i>
+                        <span>Buku</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?page=laporan">
+                        <i class="fas fa-fw fa-comments"></i>
+                        <span>Generate Laporan</span></a>
+                </li>
+            <?php } elseif ($_SESSION['role'] == 'peminjam') { ?>
+                <!-- Peminjam Menu -->
+                <li class="nav-item">
+                    <a class="nav-link" href="?page=buku">
+                        <i class="fas fa-fw fa-book"></i>
+                        <span>Buku</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?page=peminjaman">
+                        <i class="fas fa-fw fa-book-open"></i>
+                        <span>Peminjaman</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?page=registrasi">
                         <i class="fas fa-fw fa-power-off"></i>
                         <span>Registrasi</span></a>
                 </li>
             <?php } ?>
 
+            <!-- Logout -->
             <li class="nav-item">
                 <a class="nav-link" href="logout.php">
                     <i class="fas fa-fw fa-power-off"></i>
                     <span>Logout</span></a>
             </li>
+
         </ul>
 
         <div id="content-wrapper" class="d-flex flex-column">
