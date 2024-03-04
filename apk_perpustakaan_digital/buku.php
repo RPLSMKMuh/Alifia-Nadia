@@ -127,15 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </div>
                             <?php } ?>
 
-                            <?php if ($_SESSION['role'] == 'peminjam') { ?>
-                                <div class="btn-aksi">
-                                    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                                        <input type="hidden" name="id_buku" value="<?php echo $data['id_buku']; ?>">
-                                        <button type="submit" name="tambah_ke_koleksi" class="btn shadow-sm btn-primary btn-block">
-                                            <i class="fa-regular fa-bookmark"></i> Tambah ke Koleksi</button>
-                                    </form>
-                                </div>
-                            <?php } ?>
+                            
                         </div>
                     </div>
                 <?php } ?>
